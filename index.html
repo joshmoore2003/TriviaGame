@@ -3,15 +3,14 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js">
+<html>
 <!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>Indiana Jones Trivia Game</title>
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -22,17 +21,26 @@
 <body>
     <div id="main">
         <div><img src="assets/img/Indiana_Jones_logo.png"></div>
+        
         <div id="center">
             <h3>Timed Trivia</h3>
-            <button type="button" id="start-btn" class="btn btn-primary white-background white">Start Game</button>
+            <button id="start-btn" class="start-btn btn btn-warning btn-xs">Start Game</button>
         </div><br>
-        <audio id="audio" src="assets/Indiana_Jones_Theme.mp3" preload="auto" autoplay="true" loop="true"></audio>
-        <div id="musicControls" class="text-center">
-            <button onClick="document.getElementById('audio').play()" class="btn btn-warning btn-xs">
-                <span class="fa fa-music"></span> Play Theme!</button>
-            <button onClick="document.getElementById('audio').pause()" class="btn btn-primary btn-xs">
-                <span class="fa fa-pause"></span> Pause Song</button>
+    </div>
+    
+    <div id="game" class="display">
+        <div><img src="assets/img/Indiana_Jones_logo.png"></div>
+        <div id="center">
+            <h3>Timed Trivia</h3>
         </div>
+        <div id="musicControls" class="text-center">
+            <button id="start-music" class="btn btn-warning btn-xs">Play Theme!</button>
+            <button id="stop-music" class="btn btn-primary btn-xs">Pause Song</button>
+        </div>
+        <div id="clockDiv" class="timer"></div>
+        <div id="questions" class="questions"></div>
+        <div id="answerOptoins" class="answers"></div>
+        <div id="answer"></div>
     </div>
    
     <script src="assets/js/app.js"></script>
