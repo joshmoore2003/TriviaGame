@@ -43,9 +43,8 @@ function resetTime() {
     timeLeft = 10;
 }
 
-// Display quetion
 function showQuestions() {
-    for (var i = 0, length = questions.length; i < length; i++){
+    for (i = 0; i < questions.length; i++){
         document.getElementById("questions").textContent = questions[i];
     }
 } 
