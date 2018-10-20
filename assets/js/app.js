@@ -60,7 +60,7 @@ $(document).ready(function() {
 
 ];
 
-  // variables to hold our set interval and counter
+  // variables to set interval and counter
   let timer;
   let countStartNum = 20;
 
@@ -79,7 +79,7 @@ $(document).ready(function() {
     correct: 0,
     incorrect: 0,
 
-  
+  // Timer countdown function
     countdown: function() {
       game.counter--;
       $("#counterNum").text(game.counter);
@@ -89,6 +89,7 @@ $(document).ready(function() {
       }
     },
 
+    // Display counter in h2 tag
     loadQuestion: function() {
       timer = setInterval(game.countdown, 1000);
 
@@ -124,6 +125,7 @@ $(document).ready(function() {
       }
     },
 
+    // Show results after game is complete
     results: function() {
 
       clearInterval(timer);
@@ -190,7 +192,7 @@ $(document).ready(function() {
     }
   };
 
-  // CLICK EVENTS
+  // click events
 
   $(document).on("click", "#start-over", function() {
     game.reset();
@@ -207,16 +209,17 @@ $(document).ready(function() {
 }
 });
 
-// Start music when start game button is pressed
+// Start music when "start game" button is pressed
 var themeSong = new Audio("./assets/Indiana_Jones_Theme.mp3");
+// Allows song to loop
 themeSong.addEventListener('ended', function () {
   this.currentTime = 0;
   this.play();
-  alert("ACHIEVMENT UNLOCKED: You Must Love This Song!");
+  alert("ACHIEVMENT UNLOCKED: You Must Love This Song. Let's play it again!!");
 }, false);
+
+//Play button and Pause button. Incase someone doesn't like this song. But that's impossible. No one would ever pause this song.
 document.getElementById("start").addEventListener("click", e => themeSong.play());
 document.getElementById("start-music").addEventListener("click", e => themeSong.play());
 document.getElementById("stop-music").addEventListener("click", e => themeSong.pause());
 
-// Add click function that adds a class of display onto the main div and removes the display class from the game div
-//Note: game div will appear and main div is disappear.
