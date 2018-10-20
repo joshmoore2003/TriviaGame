@@ -14,12 +14,12 @@ $(document).ready(function() {
   },
   {
     question: 'In "Raiders Of the Lost Ark" what two weapons did Indy carry with him at all times?',
-    answers: ["A bullwhip and a knife", "A machete and a bullwhip", "A knife and pistol", "A bullwhip and pistol"],
+    answers: ["A bullwhip and a knife", "A bullwhip and pistol", "A knife and pistol", "A machete and a bullwhip"],
     correctAnswer: "A bullwhip and pistol"
   },
   {
     question: 'In "Indiana Jones and the Temple Of Doom", which Hindu God did the cult worship?',
-    answers: ["Ravi", "Shakti", "Vashnu", "Kali"],
+    answers: ["Ravi", "Shakti", "Kali", "Vashnu"],
     correctAnswer: "Kali"
   },
   {
@@ -150,6 +150,7 @@ $(document).ready(function() {
       }
     },
 
+    // If answer is incorrect function
     answeredIncorrectly: function() {
 
       game.incorrect++;
@@ -167,6 +168,8 @@ $(document).ready(function() {
       }
     },
 
+
+    // If answer is correct function
     answeredCorrectly: function() {
 
       clearInterval(timer);
@@ -183,6 +186,7 @@ $(document).ready(function() {
       }
     },
 
+    // Reset game function
     reset: function() {
       this.currentQuestion = 0;
       this.counter = countStartNum;
