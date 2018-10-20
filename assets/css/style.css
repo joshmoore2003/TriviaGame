@@ -63,6 +63,20 @@ img {
     to   { opacity: 1; }
 }
 
+.answer-button {
+    background-color: orange;
+    border-color: orange;
+    color: #000000;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.answer-button:hover {
+    background-color: rgb(251, 214, 0);
+    color: #000000;
+    border-color: rgb(251, 214, 0);
+}
+
 h3 {
     font-size:40px;
     margin-top: -10px !important;
