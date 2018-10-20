@@ -3,7 +3,7 @@ $(document).ready(function() {
   
   // Creating an object to hold our questions.
   let questions = [{
-    question: "What is Indiana Jones First Name?",
+    question: "What is Indiana Jones' First Name?",
     answers: ["Jason", "Henry", "Scott", "Dave"],
     correctAnswer: "Henry"
   },
@@ -62,7 +62,7 @@ $(document).ready(function() {
 
   // variables to hold our set interval and counter
   let timer;
-  let countStartNum = 10;
+  let countStartNum = 20;
 
   var viewPort = $("#question");
 
@@ -70,13 +70,7 @@ $(document).ready(function() {
   document.getElementById("start").onclick = function startBtn() {
     document.getElementById("game").classList.remove("display");
     document.getElementById("main").classList.add("display");
-    // var downloadTimer = setInterval(function() {
-    //     timeLeft--;
-    //     document.getElementById("clockDiv").textContent = timeLeft;
-    //     if(timeLeft <= 0) {
-    //         resetTime();
-    //     }
-    // },1000);
+
 
   var game = {
     questions: questions,
@@ -120,7 +114,7 @@ $(document).ready(function() {
       $("#counterNum").html(game.counter);
 
       viewPort.html("<h2>Out of Time!</h2>");
-      viewPort.append("<h3>The Correct Answer Was: " + questions[this.currentQuestion].correctAnswer);
+      viewPort.append("<h2>The Correct Answer Was: " + questions[this.currentQuestion].correctAnswer + "</h2>");
 
       if (game.currentQuestion === questions.length - 1) {
         setTimeout(game.results, 3 * 1000);
@@ -138,9 +132,9 @@ $(document).ready(function() {
 
       $("#counterNum").text(game.counter);
 
-      viewPort.append("<h3>Correct Answers: " + game.correct + "</h3>");
-      viewPort.append("<h3>Incorrect Answers: " + game.incorrect + "</h3>");
-      viewPort.append("<h3>Unanswered: " + (questions.length - (game.incorrect + game.correct)) + "</h3>");
+      viewPort.append("<h2>Correct Answers: " + game.correct + "</h2>");
+      viewPort.append("<h2>Incorrect Answers: " + game.incorrect + "</h2>");
+      viewPort.append("<h2>Unanswered: " + (questions.length - (game.incorrect + game.correct)) + "</h2>");
       viewPort.append("<br><button id='start-over'>Start Over?</button>");
     },
 
@@ -161,7 +155,7 @@ $(document).ready(function() {
       clearInterval(timer);
 
       viewPort.html("<h2 style='color:red'>WRONG!</h2>");
-      viewPort.append("<h3>The Correct Answer was: " + questions[game.currentQuestion].correctAnswer + "</h3>");
+      viewPort.append("<h2>The Correct Answer was: " + questions[game.currentQuestion].correctAnswer + "</h2>");
 
       if (game.currentQuestion === questions.length -1) {
         setTimeout(game.results, 3 * 1000);
@@ -207,7 +201,7 @@ $(document).ready(function() {
   });
 
   $(document).on("click", "#start", function() {
-    $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counterNum'>10</span> Seconds</h2>");
+    $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counterNum'>20</span> Seconds</h2>");
     game.loadQuestion();
   });
 }
@@ -215,6 +209,11 @@ $(document).ready(function() {
 
 // Start music when start game button is pressed
 var themeSong = new Audio("./assets/Indiana_Jones_Theme.mp3");
+themeSong.addEventListener('ended', function () {
+  this.currentTime = 0;
+  this.play();
+  alert("ACHIEVMENT UNLOCKED: You Must Love This Song!");
+}, false);
 document.getElementById("start").addEventListener("click", e => themeSong.play());
 document.getElementById("start-music").addEventListener("click", e => themeSong.play());
 document.getElementById("stop-music").addEventListener("click", e => themeSong.pause());
